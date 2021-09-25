@@ -25,9 +25,9 @@ const Films = connect(mapStateToProps,mapDispatchToProps)((props) => {
         list_films();
     }, [list_films]);
 
-    const Item = ({ title }) => (
+    const Item = ({ episode_id, title }) => (
         <View>
-            <Text>{title}</Text>
+            <Text style={styles.content}>{episode_id} - {title}</Text>
         </View>
     );
 
@@ -36,7 +36,7 @@ const Films = connect(mapStateToProps,mapDispatchToProps)((props) => {
             <FlatList
                 data={props.films}
                 keyExtractor={(item, index) => item + index}
-                renderItem={({ item }) => <Item title={item.title} />}
+                renderItem={({ item }) => <Item episode_id={item.episode_id} title={item.title} />}
             />
         </SafeAreaView>
     );

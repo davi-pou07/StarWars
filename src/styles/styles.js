@@ -1,9 +1,10 @@
 import { StyleSheet} from 'react-native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 
 export const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#000',
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -18,6 +19,9 @@ export const styles = StyleSheet.create({
       fontWeight:'900',
       color:'white',
       marginTop:40
+    },
+    content:{
+        color: 'rgb(195,210,250)'
     },
     p:{
       textAlign:'center',
@@ -39,4 +43,3 @@ export const styles = StyleSheet.create({
       borderRadius:8
     }
   });
-  
