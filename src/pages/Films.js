@@ -1,15 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import {
     SafeAreaView,
     Text,
-    ImageBackground,
-    TouchableOpacity
+    View,
+    FlatList
 } from 'react-native';
 import { styles } from '../styles/styles';
 import {bindActionCreators} from "redux";
 import {list_films} from "../store/actions/films_actions";
-
 
 const mapStateToProps = (state) => {
     return {
@@ -17,16 +16,28 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    list_films}, dispatch);
-
+const mapDispatchToProps = dispatch => bindActionCreators({list_films}, dispatch);
 
 const Films = connect(mapStateToProps,mapDispatchToProps)((props) => {
-    console.log('props: ', props);
+    const list_films = props.list_films;
+
+    useEffect(() => {
+        list_films();
+    }, [list_films]);
+
+    const Item = ({ title }) => (
+        <View>
+            <Text>{title}</Text>
+        </View>
+    );
+
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Filmes</Text>
-            {props.films.list}
+            <FlatList
+                data={props.films}
+                keyExtractor={(item, index) => item + index}
+                renderItem={({ item }) => <Item title={item.title} />}
+            />
         </SafeAreaView>
     );
 });

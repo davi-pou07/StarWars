@@ -11,7 +11,7 @@ const Navigator = () => {
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="Home">
                 <Drawer.Screen name="Home" component={Home} />
-                <Drawer.Screen name="Films" component={Films} />
+                <Drawer.Screen name="Filmes" component={Films} />
             </Drawer.Navigator>
         </NavigationContainer>
     );

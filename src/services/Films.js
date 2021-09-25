@@ -2,8 +2,7 @@ import apiRequest from './api';
 
 export async function getFilms() {
     try {
-        let data = await apiRequest({endpoint: 'films'})
-        return data;
+        return await apiRequest({endpoint: 'films/'})
     } catch (error) {
         console.log('erro: ', error);
     }
