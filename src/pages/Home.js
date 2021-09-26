@@ -26,10 +26,7 @@ const Home = () => {
 
     return (
     <SafeAreaView style={styles.container}>
-        <Animated.View                 // Special animatable View
-            style={{
-                opacity: fadeAnim,         // Bind opacity to animated value
-            }}>
+        <Animated.View style={{opacity: fadeAnim}}>
           <ImageBackground style={styles.image} source={require('../assets/images/backgound.jpg')}>
               <Text style={styles.title}>Star Wars</Text>
               <Text style={styles.p}>Fonte de dados quantificada e programaticamente acessível para todos os dados do universo canônico de Star Wars!</Text>
